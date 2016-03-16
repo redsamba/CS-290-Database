@@ -1,51 +1,25 @@
 <table>
- <caption>Character Stat Table table</caption>
+ <caption>Exercise Chart</caption>
  <thead>
   <tr>
-   <th>
-   <th> Strength 
-   <th> Intelligence
-   <th> Defense
-   <th> Speed
-   <th> Luck
+   <th> Name
+   <th> # of Reps
+   <th> Weight
+   <th> Date
+   <th> Lbs
  <tbody>
+   {{#each dataList}}
+    <li>{{this.name}}: {{this.value}}
+  {{/each}}
+  {{#each dataRow}}
   <tr>
-	 <td> <i>Barbarian</i>
-   <td> 75
-   <td> 25
-   <td> 35
-   <td> 40
-   <td> 25
+   <td> {{this.name}}
+   <td> {{this.reps}}
+   <td> {{this.weight}}
+   <td> {{this.date}}
+   <td> {{this.pounds}}
+   <td> <form action="/edit" method="get"><input type="button" name="edit" value="update">Edit</input></form>
+   <td> <form action="/" method="get"><input type="button" name="delete" value="remove">Delete</input></form>
   <tr>
-   <td> <i>Wizard</i>
-   <td> 15
-   <td> 75
-   <td> 25
-   <td> 35
-   <td> 40
-  <tr>
-   <td> <i>Battle Mage</i>
-   <td> 50
-   <td> 50
-   <td> 40
-   <td> 25
-   <td> 35
-  <tr>
-   <td> <i>Paladin</i>
-   <td> 40
-   <td> 35
-   <td> 65
-   <td> 25
-   <td> 35
-  <tr>
-   <td> <i>Rogue</i>
-   <td> 25
-   <td> 40
-   <td> 35
-   <td> 75
-   <td> 50
- <tfoot>
-   <tr> 
-    <th colspan= "2" > Low Stats/High Stats
-    <td colspan= "4" > The Wizard: 190 / The Rogue: 225
+  {{/each}}
 </table>
