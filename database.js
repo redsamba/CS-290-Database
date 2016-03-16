@@ -28,7 +28,7 @@ var pool = mysql.createPool({
 });
 //////////////////////////////////////////////////////////////////////////////////////////
 app.get('/',function(req,res,next){
-  var context = {};
+ /* var context = {};
   pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
@@ -37,7 +37,8 @@ app.get('/',function(req,res,next){
 
     context.results = JSON.stringify(rows);
     res.render('home', context);
-  });
+  });*/
+  res.render('home');
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.get('/insert',function(req,res,next){
