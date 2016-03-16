@@ -44,6 +44,7 @@ app.get('/',function(req,res,next){
   }
   // context.dataList = qParams;
   // res.render('GetRequest', context);
+  
     res.render('home', context);
   });
 });
