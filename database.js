@@ -28,22 +28,22 @@ var pool = mysql.createPool({
 });
 //////////////////////////////////////////////////////////////////////////////////////////
 app.get('/',function(req,res,next){
+  var context = {dataRows[]};
   pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
       return;
     }
 
-  // var qParams = [];
-  // for (var p in req.query){
-  //   qParams.push({'id':p,'name':req.query[p]})
-  // }
-  var context = {};
+  var qParams = [];
+  for(var i = 0; i < req.query.length; i++){
+    for (var p in req.query[i]){
+     qParams.push({'name':p,'value':(req.query[i])[p]);
+    }
+    context.dataRows[i].row = qParams;
+  }
   // context.dataList = qParams;
   // res.render('GetRequest', context);
-
-    context.results = JSON.stringify(rows);
-    console.log(context.results);
     res.render('home', context);
   });
 });
