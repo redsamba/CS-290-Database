@@ -28,17 +28,24 @@ var pool = mysql.createPool({
 });
 //////////////////////////////////////////////////////////////////////////////////////////
 app.get('/',function(req,res,next){
- /* var context = {};
   pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
       return;
     }
 
+  // var qParams = [];
+  // for (var p in req.query){
+  //   qParams.push({'id':p,'name':req.query[p]})
+  // }
+  // var context = {};
+  // context.dataList = qParams;
+  // res.render('GetRequest', context);
+
     context.results = JSON.stringify(rows);
+    console.log(context.results);
     res.render('home', context);
-  });*/
-  res.render('home');
+  });
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.get('/insert',function(req,res,next){
@@ -49,8 +56,8 @@ app.get('/insert',function(req,res,next){
       next(err);
       return;
     }
-    context.results = "Inserted Values " + result.insertId;
-    res.render('home',context);
+    context.results = result.insertId;
+    res.render('home', context);
   })
 
 });
