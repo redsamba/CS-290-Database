@@ -19,7 +19,7 @@
   <label>Lbs:
    <input type= "number" name="numerical_input" size= "30"maxlength= "100">
  </fieldset>
- <input type="submit" name="insert" value="row">
+ <input type="submit" name="insert" value="Submit">
 </form>
 <br>
 <table>
@@ -32,9 +32,6 @@
    <th> Date
    <th> Lbs
  <tbody>
-   {{#each dataList}}
-    <li>{{this.name}}: {{this.value}}
-  {{/each}}
   {{#each dataRow}}
   <tr>
    <td> {{this.name}}
