@@ -38,7 +38,7 @@ app.get('/',function(req,res,next){
   // for (var p in req.query){
   //   qParams.push({'id':p,'name':req.query[p]})
   // }
-  // var context = {};
+  var context = {};
   // context.dataList = qParams;
   // res.render('GetRequest', context);
 
