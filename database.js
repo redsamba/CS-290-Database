@@ -123,7 +123,7 @@ app.get('/reset-table',function(req,res,next){
 //   res.render('home.handlebars') //We can omit the .handlebars extension as we do below
 // });
 
-app.use(function(req,res){
+/*app.use(function(req,res){
   res.status(404);
   res.render('404');
 });
@@ -133,7 +133,7 @@ app.use(function(err, req, res, next){
   res.type('plain/text');
   res.status(500);
   res.render('500');
-});
+});*/
 
 
 
