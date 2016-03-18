@@ -1,7 +1,7 @@
 <form action="/insert" method="GET">
  <fieldset>
   <label>Name:
-   <input type= "text" name="text_input" size= "30" maxlength= "50">
+   <input type= "text" name="text_input">
 
   <label>Reps:
    <input type= "number" name="numerical_input" size= "30" maxlength= "50">
@@ -12,8 +12,9 @@
   <label>Date:
    <input type= "date" name="date_input" size= "30" maxlength= "50">
    
-  <label>Lbs:
-   <input type= "number" name="numerical_input" size= "30" maxlength= "50">
+  <label>Lbs: Yes / Kg: No
+   <input type= "radio" name="lbs" value ="1">Yes</input>
+   <input type= "radio" name="lbs" value ="0">No</input>
  <input type="submit" value="Submit">
  </fieldset>
 </form>
