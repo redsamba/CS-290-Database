@@ -37,7 +37,7 @@ app.get('/',function(req,res,next){
     }
 
   var qParams = [];
-  for(var i = 0; i < req.query.length; i++){
+  for(var i = 0; i < (req.query).length; i++){
     for (var p in req.query[i]){
      qParams.push({'name':p,'value':(req.query[i])[p]});
      context.dataRows[i].row = qParams;
@@ -52,7 +52,7 @@ app.get('/',function(req,res,next){
        console.log(test);
        
      };
-    res.render('home', context);
+    res.render('home');
   });
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
