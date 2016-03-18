@@ -122,9 +122,14 @@ app.get('/safe-update',function(req,res,next){
           next(err);
           return;
         }
+        res.render('home');
       });
       
-        var context = {};
+     }
+      
+    });
+    
+  var context = {};
   context.dataRows = [];
   pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
@@ -132,14 +137,10 @@ app.get('/safe-update',function(req,res,next){
       return;
     }
   
-    context.dataRows = rows
+    context.dataRows = rows;
     
     res.render('home', context);
   });
-      
-     }
-      
-    });
     
 });
 /////////////////////////////////////////////////////////////////////////////////////////
