@@ -29,6 +29,7 @@ var pool = mysql.createPool({
 //////////////////////////////////////////////////////////////////////////////////////////
 app.get('/',function(req,res,next){
   var context = {};
+  context.dataRows = [];
   pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
@@ -38,8 +39,7 @@ app.get('/',function(req,res,next){
   var qParams = [];
   for(var i = 0; i < req.query.length; i++){
     for (var p in req.query[i]){
-     qParams.push({'name':p,'value':(req.query[i])[p]);
-    }
+     qParams.push({'name':p,'value':(req.query[i])[p]});
     context.dataRows[i].row = qParams;
   }
   // context.dataList = qParams;
