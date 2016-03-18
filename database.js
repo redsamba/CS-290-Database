@@ -43,8 +43,24 @@ app.get('/insert',function(req,res,next){
       next(err);
       return;
     }
-    res.rend('home');
+    res.render('home');
   });
+  
+  app.get('/',function(req,res,next){
+  var context = {};
+  context.dataRows = [];
+  pool.query('SELECT * FROM workouts', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+  
+  context.dataRows = rows
+    
+    res.render('home', context);
+  });
+});
+  
 });
 ///////////////////////////////////////////////////////////////////////////////////////////
 app.get('/delete',function(req,res,next){
