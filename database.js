@@ -96,7 +96,7 @@ app.get('/edit', function(req, res, next){
   context.dataRows = result;
   var test = JSON.stringify(context.dataRows);
   console.log(test);
-    
+  context.dataRows = test;  
   res.render('edit', context);
   });
   
