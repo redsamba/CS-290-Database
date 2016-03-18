@@ -35,6 +35,10 @@
   {{#each dataRows}}
    <tr>
      <td> {{this.name}}
+     <td> {{this.reps}}
+     <td> {{this.weight}}
+     <td> {{this.date}}
+     <td> {{this.lbs}}
      <td> <form action="/edit" method="get"><input type="button" name="edit" value="update">Edit</input></form>
      <td> <form action="/" method="get"><input type="button" name="delete" value="remove">Delete</input></form>
   {{/each}}
