@@ -41,12 +41,13 @@ app.get('/',function(req,res,next){
     for (var p in req.query[i]){
      qParams.push({'name':p,'value':(req.query[i])[p]});
      context.dataRows[i].row = qParams;
+    }
   }
   // context.dataList = qParams;
   // res.render('GetRequest', context);
   
     res.render('home', context);
-  })
+  });
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.get('/insert',function(req,res,next){
