@@ -52,7 +52,7 @@ app.get('/',function(req,res,next){
   });
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
-app.get('/insert',function(req,res,next){
+app.get('/',function(req,res,next){
   var context = {};
 
   pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES" + 
