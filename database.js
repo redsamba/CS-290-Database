@@ -105,9 +105,21 @@ app.get('/safe-update',function(req,res,next){
           next(err);
           return;
         }
-        context.results = "Updated " + result.changedRows + " rows.";
-        res.render('home',context);
       });
+      
+        var context = {};
+        context.dataRows = [];
+        pool.query('SELECT * FROM workouts', function(err, rows, fields){
+        if(err){
+           next(err);
+         return;
+         }
+  
+      context.dataRows = rows
+    
+     res.render('home', context);
+    });
+      
     }
   });
 });
