@@ -83,11 +83,11 @@ app.get('/delete',function(req,res,next){
   
 });
 //////////////////////////////////////////////////////////////////////////////////////////
-/*app.get('/edit', function(req, res, next){
+app.get('/edit', function(req, res, next){
   
-  var context = {};
+  /*var context = {};
   context.dataRows = [];
-  pool.query('SELECT * FROM workouts', function(err, rows, fields){
+  pool.query('SELECT * FROM workouts WHERE id=?', [req.query.id] function(err, result){
     if(err){
       next(err);
       return;
@@ -95,14 +95,14 @@ app.get('/delete',function(req,res,next){
   
   context.dataRows = rows
     
-    res.render('home', context);
-  });
+    res.render('edit', context);
+  });*/
     
     var context = {}
     context.id = req.query.id
     res.render('edit', context);
   
-});*/
+});
 //////////////////////////////////////////////////////////////////////////////////////////
 app.get('/safe-update',function(req,res,next){
   var context = {};
@@ -111,10 +111,6 @@ app.get('/safe-update',function(req,res,next){
       next(err);
       return;
     }
-    
-    var context = {}
-    context.id = req.query.id
-    res.render('edit', context);
     
     if(result.length == 1){
       var curVals = result[0];
