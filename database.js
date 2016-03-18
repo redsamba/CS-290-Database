@@ -40,7 +40,7 @@ app.get('/',function(req,res,next){
   for(var i = 0; i < (rows).length; i++){
     for (var p in rows[i]){
      qParams.push({'name':p,'value':(rows[i])[p]});
-     context.dataRows[i].row = qParams;
+     context.dataRows[i] = qParams;
     }
   }
   // context.dataList = qParams;
