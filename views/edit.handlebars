@@ -1,27 +1,25 @@
 <h1>Update Info</h1>
 <br>
 <form action="/safe-update" method="get">
- {{#each dataRows}}
  <fieldset>
   <label>Name:
-   <input type= "text" name="name" value="{{this.name}}">
+   <input type= "text" name="name" value="{{dataRows.name}}">
 
   <label>Reps:
-   <input type= "number" name="reps" value="{{this.reps}}">
+   <input type= "number" name="reps" value="{{dataRows.reps}}">
 
   <label>Weight:
-   <input type= "number" name="weight" value="{{this.weight}}">
+   <input type= "number" name="weight" value="{{dataRows.weight}}">
 
   <label>Date:
-   <input type= "date" name="date" value="{{this.date}}">
+   <input type= "date" name="date" value="{{dataRows.date}}">
    <br>
   <label>Lbs: 1 / Kg: 0
   <br>
    <input type= "radio" name="lbs" value ="1">Lbs</input>
    <br>
    <input type= "radio" name="lbs" value ="0">Kg</input>
- <input type="hidden" name="id" value="{{this.id}}">  
+ <input type="hidden" name="id" value="{{dataRows.id}}">  
  <input type="submit" value="Submit">
  </fieldset>
- {{/each dataRows}}
 </form>
