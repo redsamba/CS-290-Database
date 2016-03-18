@@ -62,7 +62,7 @@ app.get('/insert',function(req,res,next){
 ///////////////////////////////////////////////////////////////////////////////////////////
 app.get('/delete',function(req,res,next){
   var context = {};
-  mysql.pool.query("DELETE FROM todo WHERE id=?", [req.query.id], function(err, result){
+  pool.query("DELETE FROM workouts WHERE id=?", [req.query.id], function(err, result){
     if(err){
       next(err);
       return;
