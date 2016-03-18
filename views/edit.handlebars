@@ -3,7 +3,6 @@
 <form action="/safe-update" method="get">
  <fieldset>
   <label>Name:
-   <input type="hidden" name="id" value="{{this.id}}">
    <input type= "text" name="name">
 
   <label>Reps:
@@ -20,6 +19,7 @@
    <input type= "radio" name="lbs" value ="1">Lbs</input>
    <br>
    <input type= "radio" name="lbs" value ="0">Kg</input>
+ <input type="hidden" name="id" value="{{this.id}}">  
  <input type="submit" value="Submit">
  </fieldset>
 </form>
