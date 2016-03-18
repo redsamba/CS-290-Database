@@ -106,22 +106,23 @@ app.get('/safe-update',function(req,res,next){
           return;
         }
       });
-      
-        var context = {};
-        context.dataRows = [];
-        pool.query('SELECT * FROM workouts', function(err, rows, fields){
-        if(err){
-           next(err);
-         return;
-         }
-  
-      context.dataRows = rows
-    
-     res.render('home', context);
     });
       
     }
+    
+  var context = {};
+  context.dataRows = [];
+  pool.query('SELECT * FROM workouts', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+  
+    context.dataRows = rows
+    
+    res.render('home', context);
   });
+    
 });
 /////////////////////////////////////////////////////////////////////////////////////////
 app.get('/reset-table',function(req,res,next){
