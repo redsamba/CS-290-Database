@@ -36,15 +36,17 @@ app.get('/',function(req,res,next){
       return;
     }
 
-  var qParams = [];
+  /*var qParams = [];
   for(var i = 0; i < (rows).length; i++){
     for (var p in rows[i]){
      qParams.push({'name':p,'value':(rows[i])[p]});
      context.dataRows[i] = qParams;
     }
-  }
+  }*/
   // context.dataList = qParams;
   // res.render('GetRequest', context);
+  
+  context.dataRows = JSON.stringify(rows);
     
     res.render('home', context);
   });
