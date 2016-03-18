@@ -114,18 +114,14 @@ app.get('/safe-update',function(req,res,next){
   var test = JSON.stringify(context.dataRows);
   console.log(test);
   context.dataRows = JSON.parse(test); 
-  test = context.dataRows;  
-    if(result.length == 1){
       pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
-        [req.query.name || test.name, req.query.reps || test.reps, req.query.weight || test.weight, req.query.date || test.date, req.querylbs || test.lbs, req.query.id],
+        [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs],
         function(err, result){
         if(err){
           next(err);
           return;
         }
       });
-      
-     }
       
     });
     
