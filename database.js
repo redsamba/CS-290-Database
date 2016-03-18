@@ -43,7 +43,6 @@ app.get('/insert',function(req,res,next){
       next(err);
       return;
     }
-    //res.render('home');
   });
   
   var context = {};
@@ -68,9 +67,20 @@ app.get('/delete',function(req,res,next){
       next(err);
       return;
     }
-    context.results = "Deleted " + result.changedRows + " rows.";
-    res.render('home',context);
   });
+  
+  context.dataRows = [];
+  pool.query('SELECT * FROM workouts', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+  
+  context.dataRows = rows
+    
+    res.render('home', context);
+  });
+  
 });
 //////////////////////////////////////////////////////////////////////////////////////////
 app.get('/safe-update',function(req,res,next){
