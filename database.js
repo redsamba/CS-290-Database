@@ -83,13 +83,26 @@ app.get('/delete',function(req,res,next){
   
 });
 //////////////////////////////////////////////////////////////////////////////////////////
-app.get('/edit', function(req, res, next){
+/*app.get('/edit', function(req, res, next){
+  
+  var context = {};
+  context.dataRows = [];
+  pool.query('SELECT * FROM workouts', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+  
+  context.dataRows = rows
+    
+    res.render('home', context);
+  });
     
     var context = {}
     context.id = req.query.id
     res.render('edit', context);
   
-});
+});*/
 //////////////////////////////////////////////////////////////////////////////////////////
 app.get('/safe-update',function(req,res,next){
   var context = {};
@@ -98,6 +111,11 @@ app.get('/safe-update',function(req,res,next){
       next(err);
       return;
     }
+    
+    var context = {}
+    context.id = req.query.id
+    res.render('edit', context);
+    
     if(result.length == 1){
       var curVals = result[0];
       pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
