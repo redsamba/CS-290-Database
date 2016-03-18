@@ -110,8 +110,13 @@ app.get('/safe-update',function(req,res,next){
       return;
     }
     
+  context.dataRows = result[0];
+  var test = JSON.stringify(context.dataRows);
+  console.log(test);
+  context.dataRows = JSON.parse(test); 
+    
     if(result.length == 1){
-      var curVals = result[0];
+      var curVals = context.dataRows;
       pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
         [req.query.name || curVals.name, req.query.reps || curVals.reps, req.query.weight || curVals.weight, req.query.date || curVals.date, req.querylbs || curvals.lbs, req.query.id],
         function(err, result){
