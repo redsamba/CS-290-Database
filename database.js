@@ -12,16 +12,9 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
-
-
-
-
-
-
-
 var mysql = require('mysql');
 var pool = mysql.createPool({
-  host  : 'http://52.25.239.188:3000',
+  host  : 'localhost',
   user  : 'student',
   password: 'default',
   database: 'student'
