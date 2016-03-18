@@ -26,7 +26,6 @@ var pool = mysql.createPool({
   password: 'default',
   database: 'student'
 });
-module.exports.pool = pool;
 //////////////////////////////////////////////////////////////////////////////////////////
 app.get('/',function(req,res,next){
   var context = {};
@@ -38,21 +37,15 @@ app.get('/',function(req,res,next){
     }
 
   var qParams = [];
-  for(var i = 0; i < (req.query).length; i++){
-    for (var p in req.query[i]){
-     qParams.push({'name':p,'value':(req.query[i])[p]});
+  for(var i = 0; i < (rows).length; i++){
+    for (var p in rows[i]){
+     qParams.push({'name':p,'value':(rows[i])[p]});
      context.dataRows[i].row = qParams;
     }
   }
   // context.dataList = qParams;
   // res.render('GetRequest', context);
-     var test;
-     for(var j = 0; j < (context.dataRows).length; j++){
-       
-       test = JSON.stringify(context.dataRows[i].row);
-       console.log(test);
-       
-     };
+    
     res.render('home', context);
   });
 });
