@@ -1,4 +1,3 @@
-
 var express = require('express');
 
 var app = express();
@@ -114,14 +113,18 @@ app.get('/safe-update',function(req,res,next){
   var test = JSON.stringify(context.dataRows);
   console.log(test);
   context.dataRows = JSON.parse(test); 
+  test = context.dataRows;  
+    if(result.length == 1){
       pool.query("UPDATE workouts SET name=?, reps=?, weight=?, date=?, lbs=? WHERE id=? ",
-        [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs],
+        [req.query.name || test.name, req.query.reps || test.reps, req.query.weight || test.weight, req.query.date || test.date, req.querylbs || test.lbs, req.query.id],
         function(err, result){
         if(err){
           next(err);
           return;
         }
       });
+      
+     }
       
     });
     
@@ -170,7 +173,6 @@ app.get('/reset-table',function(req,res,next){
   res.status(404);
   res.render('404');
 });
-
 app.use(function(err, req, res, next){
   console.error(err.stack);
   res.type('plain/text');
@@ -187,4 +189,3 @@ app.use(function(err, req, res, next){
 app.listen(app.get('port'), function(){
   console.log('Express started on http://localhost:' + app.get('port') + '; press Ctrl-C to terminate.');
 });
-
