@@ -85,7 +85,7 @@ app.get('/delete',function(req,res,next){
 //////////////////////////////////////////////////////////////////////////////////////////
 app.get('/edit', function(req, res, next){
   
-  /*var context = {};
+  var context = {};
   context.dataRows = [];
   pool.query('SELECT * FROM workouts WHERE id=?', [req.query.id] function(err, result){
     if(err){
@@ -93,14 +93,10 @@ app.get('/edit', function(req, res, next){
       return;
     }
   
-  context.dataRows = rows
+  context = result
     
     res.render('edit', context);
-  });*/
-    
-    var context = {}
-    context.id = req.query.id
-    res.render('edit', context);
+  });
   
 });
 //////////////////////////////////////////////////////////////////////////////////////////
