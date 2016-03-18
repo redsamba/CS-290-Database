@@ -1,6 +1,7 @@
 <h1>Update Info</h1>
 <br>
 <form action="/safe-update" method="get">
+ {{#each dataRows}}
  <fieldset>
   <label>Name:
    <input type= "text" name="name" value="{{this.name}}">
@@ -22,4 +23,5 @@
  <input type="hidden" name="id" value="{{this.id}}">  
  <input type="submit" value="Submit">
  </fieldset>
+ {{/each dataRows}}
 </form>
