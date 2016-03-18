@@ -26,6 +26,7 @@ var pool = mysql.createPool({
   password: 'default',
   database: 'student'
 });
+module.exports.pool = pool;
 //////////////////////////////////////////////////////////////////////////////////////////
 app.get('/',function(req,res,next){
   var context = {};
@@ -52,7 +53,7 @@ app.get('/',function(req,res,next){
        console.log(test);
        
      };
-    res.render('home');
+    res.render('home', context);
   });
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
