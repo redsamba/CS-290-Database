@@ -93,7 +93,7 @@ app.get('/edit', function(req, res, next){
       return;
     }
   
-  context = result;
+  context.dataRows = result;
     
   res.render('edit', context);
   });
