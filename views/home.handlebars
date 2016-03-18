@@ -1,7 +1,7 @@
 <form action="/insert" method="GET">
  <fieldset>
   <label>Name:
-   <input type= "text" name="text_input">
+   <input type= "text" name="text_input" size= "30" maxlength= "50">
 
   <label>Reps:
    <input type= "number" name="numerical_input" size= "30" maxlength= "50">
@@ -13,7 +13,9 @@
    <input type= "date" name="date_input" size= "30" maxlength= "50">
    
   <label>Lbs: Yes / Kg: No
+  <br>
    <input type= "radio" name="lbs" value ="1">Yes</input>
+   <br>
    <input type= "radio" name="lbs" value ="0">No</input>
  <input type="submit" value="Submit">
  </fieldset>
@@ -36,7 +38,7 @@
      <td> {{this.weight}}
      <td> {{this.date}}
      <td> {{this.lbs}}
-     <td> <form action="/edit" method="get"><input type="button" name="edit" value="update">Edit</input></form>
-     <td> <form action="/" method="get"><input type="button" name="delete" value="remove">Delete</input></form>
+     <td> <form action="/edit" method="get"><input type="button" name="edit" value="Update"></input></form>
+     <td> <form action="/" method="get"><input type="button" name="delete" value="Remove"></input></form>
   {{/each}}
 </table>
