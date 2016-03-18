@@ -46,7 +46,7 @@ app.get('/',function(req,res,next){
   // context.dataList = qParams;
   // res.render('GetRequest', context);
   
-  context.dataRows = JSON.parse(rows);
+  context.dataRows = rows
     
     res.render('home', context);
   });
