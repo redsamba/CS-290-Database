@@ -41,13 +41,17 @@ app.get('/',function(req,res,next){
     for (var p in req.query[i]){
      qParams.push({'name':p,'value':(req.query[i])[p]});
      context.dataRows[i].row = qParams;
-     var test = JSON.stringify(context.dataRows[i].row);
-     console.log(test);
     }
   }
   // context.dataList = qParams;
   // res.render('GetRequest', context);
-  
+     var test;
+     for(var j = 0; j < (context.dataRows).length; j++){
+       
+       test = JSON.stringify(context.dataRows[i].row);
+       console.log(test);
+       
+     };
     res.render('home', context);
   });
 });
