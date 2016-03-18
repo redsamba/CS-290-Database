@@ -1,7 +1,35 @@
 <!doctype html>
 <html>
 <head>
-<title>My Page</title>
+<title>Workout Page: By Tim Williams</title>
+<script>
+ function submit() {
+  document.getElementById("formSubmit").addEventListener("click", function(event) {
+    var req = new XMLHttpRequest();
+    var path = "/insert";
+
+    var form = {};
+    form.name = document.getElementById("name").value;
+    form.reps = document.getElementById("reps").value;
+    form.weight = document.getElementById("weight").value;
+    form.date = document.getElementById("date").value;
+    form.lbs = document.getElementById("lbs").value;
+
+    console.log(JSON.stringify(form)); //
+
+    req.open("GET", path, true);
+    req.setRequestHeader("Content-Type", "application/json");
+    req.addEventListener("load", function() {
+      if (req.status >= 200 && req.status< 400) {
+        console.log("OK.");
+      };
+    });
+    req.send(JSON.stringify(form));
+    console.log(JSON.stringify(form));
+    event.preventDefault();
+  });
+};
+</script>
 </head>
 <body>
 {{{body}}}
