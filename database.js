@@ -61,6 +61,7 @@ app.get('/insert',function(req,res,next){
   });
 
 });
+});
 ///////////////////////////////////////////////////////////////////////////////////////////
 app.get('/delete',function(req,res,next){
   var context = {};
