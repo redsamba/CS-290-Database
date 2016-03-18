@@ -52,7 +52,7 @@ app.get('/',function(req,res,next){
   });
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
-app.get('/',function(req,res,next){
+app.get('/insert',function(req,res,next){
   var context = {};
 
   pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES" + 
@@ -107,7 +107,7 @@ app.get('/reset-table',function(req,res,next){
   pool.query("DROP TABLE IF EXISTS workouts", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "CREATE TABLE workouts("+
     "id INT PRIMARY KEY AUTO_INCREMENT,"+
-    "name VARCHAR(255) NOT NULL,"+
+    "name VARCHAR(255),"+
     "reps INT,"+
     "weight INT,"+
     "date DATE,"+
