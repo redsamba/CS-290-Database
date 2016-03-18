@@ -93,9 +93,9 @@ app.get('/edit', function(req, res, next){
       return;
     }
   
-  context = result
+  context = result;
     
-    res.render('edit', context);
+  res.render('edit', context);
   });
   
 });
