@@ -43,6 +43,8 @@ app.get('/',function(req,res,next){
      context.dataRows[i].row = qParams;
     }
   }
+  context.dataRows = JSON.stringify(context.dataRows);
+  console.log(context.dataRows);
   // context.dataList = qParams;
   // res.render('GetRequest', context);
   
