@@ -109,9 +109,6 @@ app.get('/safe-update',function(req,res,next){
       return;
     }
     
-  context.dataRows = result[0];  
-  res.render('edit', context);
-    
   context.dataRows = result[0];
   var test = JSON.stringify(context.dataRows);
   console.log(test);
