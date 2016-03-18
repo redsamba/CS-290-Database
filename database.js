@@ -53,6 +53,7 @@ app.get('/',function(req,res,next){
       next(err);
       return;
     }
+    res.render('home');
   });
 
 });
