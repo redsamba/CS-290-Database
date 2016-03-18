@@ -28,16 +28,6 @@ app.get('/',function(req,res,next){
       next(err);
       return;
     }
-
-  /*var qParams = [];
-  for(var i = 0; i < (rows).length; i++){
-    for (var p in rows[i]){
-     qParams.push({'name':p,'value':(rows[i])[p]});
-     context.dataRows[i] = qParams;
-    }
-  }*/
-  // context.dataList = qParams;
-  // res.render('GetRequest', context);
   
   context.dataRows = rows
     
@@ -46,14 +36,25 @@ app.get('/',function(req,res,next){
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
 app.get('/insert',function(req,res,next){
-  
+  var context = {};
   pool.query("INSERT INTO workouts (`name`, `reps`, `weight`, `date`, `lbs`) VALUES" +  
   "(?, ?, ?, ?, ?)", [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
     if(err){
       next(err);
       return;
     }
-    next('/');
+    res.rend('home');
+  });
+  
+  pool.query('SELECT * FROM workouts', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+  
+  context.dataRows = rows
+    
+    res.render('home', context);
   });
 
 });
