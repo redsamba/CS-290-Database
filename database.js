@@ -106,9 +106,10 @@ app.get('/safe-update',function(req,res,next){
           return;
         }
       });
-    });
       
-    }
+     }
+      
+    });
     
   var context = {};
   context.dataRows = [];
