@@ -83,6 +83,12 @@ app.get('/delete',function(req,res,next){
   
 });
 //////////////////////////////////////////////////////////////////////////////////////////
+app.get('/edit', function(req, res, next){
+  
+  res.render('edit')
+  
+});
+//////////////////////////////////////////////////////////////////////////////////////////
 app.get('/safe-update',function(req,res,next){
   var context = {};
   pool.query("SELECT * FROM workouts WHERE id=?", [req.query.id], function(err, result){
