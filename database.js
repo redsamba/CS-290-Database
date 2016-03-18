@@ -41,10 +41,9 @@ app.get('/',function(req,res,next){
     for (var p in req.query[i]){
      qParams.push({'name':p,'value':(req.query[i])[p]});
      context.dataRows[i].row = qParams;
+     console.log(context.dataRows[i].row);
     }
   }
-  context.dataRows = JSON.stringify(context.dataRows);
-  console.log(context.dataRows);
   // context.dataList = qParams;
   // res.render('GetRequest', context);
   
