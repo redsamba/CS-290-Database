@@ -1,5 +1,6 @@
 <form action="/insert" method="get">
  <fieldset>
+  <input type="hidden" name="hidId">
   <label>Name:
    <input type= "text" name="text_input" size= "30"maxlength= "50">
 
@@ -29,7 +30,7 @@
    <th> Lbs
  <tbody>
   {{#each dataRows}}
-   <tr>
+   <tr id={{this.id}}>
      <td> {{this.name}}
      <td> {{this.reps}}
      <td> {{this.weight}}
