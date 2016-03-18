@@ -34,9 +34,7 @@
  <tbody>
   {{#each dataRows}}
    <tr>
-    {{#each row}}
      <td> {{this.name}}
-    {{/each}}
      <td> <form action="/edit" method="get"><input type="button" name="edit" value="update">Edit</input></form>
      <td> <form action="/" method="get"><input type="button" name="delete" value="remove">Delete</input></form>
   {{/each}}
