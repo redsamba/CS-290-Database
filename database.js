@@ -87,7 +87,7 @@ app.get('/edit', function(req, res, next){
   
   var context = {};
   context.dataRows = [];
-  pool.query('SELECT * FROM workouts WHERE id=?', [req.query.id] function(err, result){
+  pool.query('SELECT * FROM workouts WHERE id=?', [req.query.id], function(err, result){
     if(err){
       next(err);
       return;
