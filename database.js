@@ -93,7 +93,7 @@ app.get('/edit', function(req, res, next){
       return;
     }
   
-  context.dataRows = result;
+  context.dataRows = result[0];
   var test = JSON.stringify(context.dataRows);
   console.log(test);
   context.dataRows = JSON.parse(test);  
