@@ -46,6 +46,9 @@ app.get('/insert',function(req,res,next){
     res.rend('home');
   });
   
+  app.get('/',function(req,res,next){
+  var context = {};
+  context.dataRows = [];
   pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
