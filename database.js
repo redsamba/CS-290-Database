@@ -28,7 +28,7 @@ var pool = mysql.createPool({
 });
 //////////////////////////////////////////////////////////////////////////////////////////
 app.get('/',function(req,res,next){
-  var context = {dataRows};
+  var context = {};
   pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
